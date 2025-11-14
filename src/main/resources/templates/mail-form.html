@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Send Mail Campaign</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f8;
+            padding: 40px;
+        }
+        h2 {
+            text-align: center;
+            color: #333333;
+            margin-bottom: 25px;
+        }
+        form {
+            background: #ffffff;
+            max-width: 600px;
+            margin: auto;
+            padding: 25px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #555555;
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px 12px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+            resize: vertical;
+        }
+        textarea {
+            min-height: 100px;
+        }
+        button {
+            display: block;
+            margin-top: 20px;
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        @media (max-width: 640px) {
+            form {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+<h2>Send Mail Campaign</h2>
+<form th:action="@{/mail-campaign/send}" th:object="${mailCampaignRequest}" method="post">
+    <label>Recipients (comma-separated emails):</label>
+    <input type="text" th:field="*{recipients}"
+           placeholder="abc@gmail.com, xyz@gmail.com"
+           list="sentEmails" />
+
+    <datalist id="sentEmails">
+        <option th:each="email : ${sentEmails}" th:value="${email}"></option>
+    </datalist>
+    <label>Title:</label>
+    <input type="text" th:field="*{title}" placeholder="Email title"/>
+
+    <label>Content:</label>
+    <textarea th:field="*{content}" placeholder="Enter email content"></textarea>
+
+    <label>Product:</label>
+    <input type="text" th:field="*{product}" placeholder="Product name"/>
+
+    <button type="submit">Send Mail</button>
+</form>
+</body>
+</html>

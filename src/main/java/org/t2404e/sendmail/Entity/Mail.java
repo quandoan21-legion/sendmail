@@ -12,7 +12,6 @@ public class Mail {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
     private String recipient_ids;
     private String title;
     private String content;
@@ -20,7 +19,7 @@ public class Mail {
     // Quan hệ Many-to-Many với Product
     @ManyToMany
     @JoinTable(
-            name = "mail_products",
+            name = "mail_to_products",
             joinColumns = @JoinColumn(name = "mail_id"),
             inverseJoinColumns = @JoinColumn(name = "product_id")
     )
@@ -29,7 +28,7 @@ public class Mail {
     // Quan hệ Many-to-Many với Users
     @ManyToMany
     @JoinTable(
-            name = "mail_users",
+            name = "mail_to_users",
             joinColumns = @JoinColumn(name = "mail_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id")
     )

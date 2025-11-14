@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Email Campaign</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            padding: 30px;
+        }
+        .email-container {
+            max-width: 650px;
+            margin: auto;
+            background-color: #ffffff;
+            padding: 30px 35px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            line-height: 1.6;
+        }
+        h2 {
+            text-align: center;
+            color: #333333;
+            margin-bottom: 25px;
+            font-size: 28px;
+        }
+        .section-title {
+            font-weight: bold;
+            color: #555555;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+        .section-content {
+            color: #444444;
+            font-size: 16px;
+            margin-bottom: 15px;
+            white-space: pre-line; /* giữ xuống dòng */
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #e0e0e0;
+            margin: 25px 0;
+        }
+        .footer {
+            text-align: center;
+            color: #777777;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+<div class="email-container">
+
+    <h2>📩 Email Campaign</h2>
+
+    <div>
+        <div class="section-title">Nội dung:</div>
+        <div class="section-content" th:text="${content}">Email content here...</div>
+    </div>
+
+    <div>
+        <div class="section-title">Sản phẩm:</div>
+        <div class="section-content" th:text="${product}">Product name...</div>
+    </div>
+
+    <hr>
+
+    <div class="footer">
+        Đây là email được gửi tự động từ hệ thống Send Mail Campaign.
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mail Result</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f8;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .message-box {
+            background: #fff;
+            padding: 30px 40px;
+            max-width: 500px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #555;
+            word-wrap: break-word; /* tránh text quá dài */
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 25px;
+            text-decoration: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 6px;
+            transition: background 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 640px) {
+            .message-box {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="message-box">
+    <h2>Result</h2>
+    <p th:text="${message}">Your message will appear here</p>
+    <a th:href="@{/mail-campaign/form}">Send another mail</a>
+</div>
+</body>
+</html>
