@@ -4,17 +4,103 @@
     <meta charset="UTF-8">
     <title>Send Mail Campaign</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background:#f4f6f8; padding:40px;}
-        h2 { text-align:center; color:#333; margin-bottom:25px;}
-        form { background:#fff; max-width:600px; margin:auto; padding:25px 30px; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1);}
-        label { display:block; margin-top:15px; font-weight:bold; color:#555;}
-        input[type="text"], textarea { width:100%; padding:10px 12px; margin-top:5px; border:1px solid #ccc; border-radius:6px; font-size:14px; resize:vertical;}
-        textarea { min-height:100px;}
-        button { display:block; margin-top:20px; width:100%; padding:12px; font-size:16px; background:#007bff; color:white; border:none; border-radius:6px; cursor:pointer;}
-        button:hover { background:#0056b3;}
-        .autocomplete-suggestions { border: 1px solid #ccc; max-height:150px; overflow-y:auto; position:absolute; background:white; z-index:1000; width: calc(100% - 26px); }
-        .suggestion { padding:5px 10px; cursor:pointer;}
-        .suggestion:hover { background:#f0f0f0;}
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f4f6f8;
+            margin: 0;
+            padding: 40px 15px; /* padding nhỏ hai bên để không bị lệch trên màn nhỏ */
+            box-sizing: border-box;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+            font-size: 26px;
+            font-weight: 600;
+        }
+
+        form {
+            background: #fff;
+            max-width: 600px;
+            width: 100%; /* tránh bị lệch khi màn nhỏ */
+            margin: auto;
+            padding: 28px 32px;
+            border-radius: 12px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+            box-sizing: border-box; /* tránh tràn padding làm lệch */
+        }
+
+        label {
+            display: block;
+            margin-top: 16px;
+            font-weight: 600;
+            color: #555;
+            font-size: 15px;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 11px 13px;
+            margin-top: 6px;
+            border: 1px solid #cfd3d8;
+            border-radius: 7px;
+            font-size: 15px;
+            box-sizing: border-box;
+            transition: border-color 0.2s ease;
+        }
+
+        input[type="text"]:focus,
+        textarea:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        textarea {
+            min-height: 110px;
+        }
+
+        button {
+            display: block;
+            margin-top: 22px;
+            width: 100%;
+            padding: 13px;
+            font-size: 17px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.2s ease;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .autocomplete-suggestions {
+            border: 1px solid #ccc;
+            max-height: 160px;
+            overflow-y: auto;
+            background: white;
+            z-index: 1000;
+            width: 100%;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .suggestion {
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .suggestion:hover {
+            background: #f0f0f0;
+        }
     </style>
 </head>
 <body>
